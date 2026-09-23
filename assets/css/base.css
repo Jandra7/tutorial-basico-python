@@ -1,0 +1,12 @@
+/* Estilos base: reset, tipografía y accesibilidad */
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 60px)}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;font-size:16px;overflow-x:hidden}
+a{color:var(--primary)}
+h1,h2,h3,h4{line-height:1.25;margin:1.2em 0 .5em}
+p{margin:.5em 0 .9em}
+button{font-family:inherit;font-size:15px;cursor:pointer}
+:focus-visible{outline:3px solid var(--primary);outline-offset:2px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:0;background:var(--primary);color:#fff;padding:10px;z-index:999}
+.skip:focus{left:10px}
