@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tutorial básico de Python - Materia: Programación Web - Tema: Introducción a Python">
+<title>Tutorial básico de Python</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<!-- =========================================================
+     HTML — estructura semántica
+     ========================================================= -->
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="site-header" role="banner">
+  <div class="header-row">
+    <button class="icon-btn" id="menuBtn" aria-label="Abrir menú del temario" aria-controls="sidebar" aria-expanded="false">☰</button>
+    <a href="#inicio" class="brand" aria-label="Ir al inicio">
+      <span class="logo" aria-hidden="true">🐍</span>
+      <span><strong>Tutorial básico de Python</strong><small>Materia: Programación Web</small><small>Tema: Introducción a Python</small></span>
+    </a>
+    <button class="icon-btn" id="themeBtn" aria-label="Cambiar modo claro/oscuro">🌙</button>
+    <div class="dropdown">
+      <button class="icon-btn" id="settingsBtn" aria-haspopup="true" aria-expanded="false" aria-controls="settingsMenu" aria-label="Configuración">⚙️</button>
+      <div class="menu settings-panel" id="settingsMenu">
+        <h3>Configuración del curso</h3>
+        <dl><dt>Nivel</dt><dd>Principiante</dd><dt>Idioma</dt><dd>Español</dd></dl>
+        <button type="button" id="resetProgress">↺ Reiniciar progreso</button>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="icon-btn" id="exportBtn" aria-haspopup="true" aria-expanded="false" aria-controls="exportMenu">📄 <span class="label-lg">Exportar tutorial</span></button>
+      <div class="menu" id="exportMenu" role="menu">
+        <button role="menuitem" data-action="print">🖨️ Imprimir</button>
+        <button role="menuitem" data-action="pdf">📕 Descargar PDF</button>
+        <button role="menuitem" data-action="word">📝 Descargar Word</button>
+      </div>
+    </div>
+  </div>
+  <div class="search-row" role="search">
+    <label for="search" class="skip">Buscar en el tutorial</label>
+    <input id="search" type="search" placeholder="🔎 Buscar en el tutorial..." autocomplete="off" aria-controls="searchResults">
+    <div class="search-results" id="searchResults" role="listbox" aria-label="Resultados de búsqueda"></div>
+  </div>
+  <div class="progress-top" aria-hidden="true"><span id="topBar"></span></div>
+</header>
+
+<div class="backdrop" id="backdrop"></div>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Temario del curso">
+    <h2>Índice</h2>
+    <ol class="toc" id="toc"></ol>
+  </nav>
+
+  <main id="contenido">
+    <!-- Portada -->
+    <section class="hero" id="inicio" aria-labelledby="heroTitle">
+      <div class="hero-main">
+        <h1 id="heroTitle">Tutorial básico de Python</h1>
+        <p class="subject"><span><b>Materia:</b> Programación Web</span><span><b>Tema:</b> Introducción a Python</span></p>
+        <p class="lead">Aprende Python paso a paso, desde los fundamentos hasta construir tu primer proyecto.</p>
+        <div class="actions">
+          <a class="btn primary" href="#m1">Comenzar curso <span aria-hidden="true">→</span></a>
+          <button class="btn" data-action="print">Versión imprimible</button>
+        </div>
+      </div>
+      <div class="hero-code no-print" aria-hidden="true">
+        <div class="dots"><i></i><i></i><i></i><span>hola.py</span></div>
+<pre><span class="tk-kw">def</span> saludar(nombre):
+    <span class="tk-kw">return</span> <span class="tk-str">f"Hola, {nombre}"</span>
+
+<span class="tk-fn">print</span>(saludar(<span class="tk-str">"mundo"</span>))
+<span class="tk-com"># Hola, mundo</span></pre>
+      </div>
+      <dl class="meta" id="meta"></dl>
+      <div class="progress-box">
+        <div class="progress-head"><span>Tu progreso</span><strong id="progressLabel">0%</strong></div>
+        <div class="bar" role="progressbar" aria-label="Progreso del curso" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar"><span></span></div>
+      </div>
+    </section>
+
+    <!-- Módulos generados por JavaScript -->
+    <div id="modules"></div>
+
+    <!-- Cheatsheet -->
+    <section class="card module" id="cheatsheet" aria-labelledby="cheatTitle">
+      <div class="module-head"><div class="badge" aria-hidden="true">⚡</div><div><small>Referencia rápida</small><h2 id="cheatTitle">⚡ Python Cheatsheet</h2></div></div>
+      <div class="grid" id="cheatGrid" style="margin-top:16px"></div>
+    </section>
+
+    <!-- Glosario -->
+    <section class="card module" id="glosario" aria-labelledby="glossTitle">
+      <div class="module-head"><div class="badge" aria-hidden="true">📖</div><div><small>Conceptos</small><h2 id="glossTitle">📖 Glosario de Python</h2></div></div>
+      <p></p>
+      <label for="glossSearch" class="skip">Buscar en el glosario</label>
+      <input id="glossSearch" type="search" placeholder="Buscar término del glosario...">
+      <div class="gloss-list" id="glossList"></div>
+    </section>
+  </main>
+</div>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong><span aria-hidden="true">🐍</span> Tutorial básico de Python</strong>
+      <span>Materia: Programación Web</span>
+      <span>Tema: Introducción a Python</span>
+    </div>
+    <nav class="footer-links" aria-label="Enlaces del pie de página">
+      <a href="#inicio">Inicio</a><a href="#m1">Módulo 1</a><a href="#proyecto">Proyecto final</a><a href="#cheatsheet">Cheatsheet</a><a href="#glosario">Glosario</a>
+    </nav>
+  </div>
+  <p class="footer-copy">© <span id="year"></span> Tutorial básico de Python · Programación Web</p>
+</footer>
+
+<!-- Documento para impresión: se genera con JavaScript con TODO el contenido del curso -->
+<div id="printDoc" aria-hidden="true"></div>
+
+<nav class="bottom-nav" aria-label="Navegación inferior">
+  <a href="#inicio"><span aria-hidden="true">🏠</span>Inicio</a>
+  <button id="bottomMenu" aria-label="Abrir temario"><span aria-hidden="true">📚</span>Temario</button>
+  <button id="bottomSearch" aria-label="Buscar"><span aria-hidden="true">🔎</span>Buscar</button>
+  <a href="#cheatsheet"><span aria-hidden="true">⚡</span>Cheatsheet</a>
+</nav>
+
+<!--
+  html2pdf.js (CDN cdnjs): se utiliza ÚNICAMENTE para el botón "📕 Descargar PDF".
+  Convierte una versión documental del tutorial (portada, índice, módulos) en PDF
+  en el navegador, sin servidor. Si no carga, se usa window.print() como alternativa.
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+
+<!-- Aplicación (capas: core → data → services → ui → main) -->
+<script src="assets/js/core/constants.js" defer></script>
+<script src="assets/js/core/utils.js" defer></script>
+<script src="assets/js/data/videos.js" defer></script>
+<script src="assets/js/data/modules.js" defer></script>
+<script src="assets/js/data/project.js" defer></script>
+<script src="assets/js/data/reference.js" defer></script>
+<script src="assets/js/services/storage.js" defer></script>
+<script src="assets/js/services/exporter.js" defer></script>
+<script src="assets/js/ui/templates.js" defer></script>
+<script src="assets/js/ui/render.js" defer></script>
+<script src="assets/js/ui/progress.js" defer></script>
+<script src="assets/js/ui/search.js" defer></script>
+<script src="assets/js/ui/controls.js" defer></script>
+<script src="assets/js/ui/events.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
