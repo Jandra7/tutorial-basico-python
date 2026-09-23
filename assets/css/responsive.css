@@ -1,0 +1,25 @@
+/* Responsive: tablet y desktop */
+
+/* ---------- Tablet / Desktop ---------- */
+@media (min-width:640px){
+  .meta{grid-template-columns:repeat(4,1fr)}
+  .meta div:nth-child(odd){border-left:1px solid var(--border);padding-left:16px}
+  .meta div:first-child{border-left:0;padding-left:0}
+  .hero{padding:44px 40px 32px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .card{padding:26px 28px}
+  .label-lg{display:inline}
+}
+@media (min-width:1024px){
+  .layout{display:grid;grid-template-columns:290px 1fr}
+  .sidebar{position:sticky;top:calc(var(--header-h) + 76px);height:calc(100vh - var(--header-h) - 76px);transform:none;max-width:none;z-index:1}
+  .backdrop,#menuBtn,.bottom-nav{display:none!important}
+  .site-footer{padding-bottom:26px}
+  .footer-inner{flex-direction:row;justify-content:space-between;align-items:center}
+  main{padding:24px 32px 40px}
+  .hero{grid-template-columns:1.2fr 1fr;column-gap:36px}
+  .hero .meta,.hero .progress-box{grid-column:1 / -1}
+  .search-row input{max-width:620px}
+  .search-results{right:auto;width:620px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
